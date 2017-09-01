@@ -8,9 +8,20 @@ import java.io.IOException;
 public class Main {
 
 	public static void main(String[] args) {
-		generadorCasoFatiga(100000);
+		//generadorCasoFatiga(100000);
+	
+		try {
+			File entrada = new File("entrada.in");
+			File salida = new File("salida.out");
+			KMasPequenios k = new KMasPequenios(entrada, salida);
+			k.resolver();
+		} catch (IOException e) {
+			System.out.println("Falla la resolución del problema");
+			e.printStackTrace();
+		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void generadorCasoFatiga(int numeros) {
 		try {
 			BufferedWriter buffer = new BufferedWriter(new FileWriter(new File("Lote de Prueba/Entrada/12_Fatiga.in")));
